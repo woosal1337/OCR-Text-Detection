@@ -8,7 +8,8 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 #print(pytesseract.image_to_boxes(img))
 
 hImg, wImg, _ = img.shape
-boxes = pytesseract.image_to_data(img)
+cong = r"--oem 3 --psm 6 outputbase digits"
+boxes = pytesseract.image_to_data(img, config=cong)
 #print(boxes)
 
 for x,b in enumerate(boxes.splitlines()):
